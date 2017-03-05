@@ -1,4 +1,4 @@
-package com.hussain.pugimages_debug;
+package com.hussain.pugimages_debug.models;
 
 /**
  * Created by Hussain on 9/23/2016.

@@ -1,4 +1,4 @@
-package com.hussain.pugimages_debug;
+package com.hussain.pugimages_debug.models;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
