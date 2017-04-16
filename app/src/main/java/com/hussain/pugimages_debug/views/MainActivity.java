@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
@@ -90,10 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setGridData(ArrayList<GridItem> gridData){
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        FlexboxLayoutManager layoutManager = new FlexboxLayoutManager();
-        layoutManager.setFlexWrap(FlexWrap.WRAP);
-        layoutManager.setAlignItems(AlignItems.STRETCH);
-        layoutManager.setJustifyContent(JustifyContent.CENTER);
+        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 3);
+//        FlexboxLayoutManager layoutManager = new FlexboxLayoutManager();
+//        layoutManager.setFlexWrap(FlexWrap.WRAP);
+//        layoutManager.setAlignItems(AlignItems.STRETCH);
+//        layoutManager.setJustifyContent(JustifyContent.CENTER);
         recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new PugsAdapter(this, gridData);
         recyclerView.setAdapter(adapter);
