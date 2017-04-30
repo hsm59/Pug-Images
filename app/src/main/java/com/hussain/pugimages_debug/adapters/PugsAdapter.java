@@ -1,5 +1,7 @@
 package com.hussain.pugimages_debug.adapters;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hussain.pugimages_debug.R;
 import com.hussain.pugimages_debug.models.GridItem;
@@ -43,6 +46,15 @@ public class PugsAdapter extends RecyclerView.Adapter<PugsAdapter.PugsViewHolder
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: "+currentItem.getImage());
+            }
+        });
+        holder.mImageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) mContext.getSystemService(mContext.CLIPBOARD_SERVICE);
+                clipboardManager.setPrimaryClip(ClipData.newPlainText("URL", currentItem.getImage()));
+                Toast.makeText(mContext, "Text Copied", Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
     }
